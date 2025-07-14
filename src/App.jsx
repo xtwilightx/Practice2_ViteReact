@@ -25,11 +25,11 @@ const paitOfArrayCards = [...initialArrayCards, ...initialArrayCards]
 
 const App = () => {
 
-  const [arrayCards, setArrayCards] = useState([]) //Закрытые карточки
-  const [openedCards, setOpenCards] = useState([]) //Открытые карточки
+  const [arrayCards, setArrayCards] = useState([]) 
+  const [openedCards, setOpenCards] = useState([]) 
 
-  const [matched, setMatched] = useState([]) //Совпадения
-  const [moves, setMoves] = useState([]) //Шаги
+  const [matched, setMatched] = useState([]) 
+  const [moves, setMoves] = useState(0)
 
   const shuffle = (array) => {
     let currentIndex = array.length,
@@ -54,6 +54,19 @@ const App = () => {
     setArrayCards(shuffle(paitOfArrayCards))
   }, []) 
 
+  // useEffect(() => {
+  //   setOpenCards()
+  // }, [])
+
+  const flipCard = (index) => () => {
+    setOpenCards(opened => [...opened, index]);
+    setMoves(prevMove => prevMove + 1);
+  }
+
+  useEffect(() => {
+
+  }, [])
+
 return (
   <div className='App'>
     <p className='number-of-strokes'>Сделано ходов {moves}</p>
@@ -62,14 +75,14 @@ return (
         const isFlipped = openedCards.includes(index) || matched.includes(item.id);
 
         return (
-          <div 
+          <div
             key={index} 
             className={`card relative w-32 h-32 ${isFlipped ? 'flipped' : ''}`} >
             <div className="w-full h-full flex items-center justify-center">
               <item.img className='size-20 text-white rounded-xl bg-slate-400' />
             </div>
 
-            <div className={`absolute inset-0 flex items-center justify-center 
+            <div onClick={flipCard(index)} className={`absolute inset-0 flex items-center justify-center 
                              ${isFlipped ? 'hidden' : ''}`}> 
               <QuestionMarkCircleIcon className='size-20 text-white rounded-xl bg-slate-400' />
             </div>
