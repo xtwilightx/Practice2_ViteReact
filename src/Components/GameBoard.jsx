@@ -1,4 +1,4 @@
-import { GameCard } from "../ui/GameCard";
+import { GameCard } from "./UI/GameCard/GameCard";
 import { useState } from "react";
 
 
