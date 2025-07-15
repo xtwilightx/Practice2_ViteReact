@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import {initialArrayCards} from '../constants/cards';
+import {initialArrayCards} from '../constants/Cards';
 
 
 export const useGameLogic = () => {

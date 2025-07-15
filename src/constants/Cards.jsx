@@ -17,3 +17,14 @@ export const initialArrayCards = [
     { id: 7, img: NewspaperIcon },
     { id: 8, img: MagnifyingGlassIcon },
   ]
+
+  export const Icons = {
+  BeakerIcon,
+  CpuChipIcon,
+  AcademicCapIcon,
+  LanguageIcon,
+  CakeIcon,
+  ScissorsIcon,
+  NewspaperIcon,
+  MagnifyingGlassIcon
+};
