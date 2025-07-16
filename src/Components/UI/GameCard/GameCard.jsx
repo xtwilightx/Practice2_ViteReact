@@ -4,7 +4,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
 
 export const GameCard = ({ item, index, isFlipped, onClick }) => {
   const IconComponent = item.img;
-
+ 
   return (
     <div
       key={index}

@@ -2,7 +2,7 @@ import { useState,useEffect } from "react"
 import {initialArrayCards} from '../constants/Cards';
 
 
-export const useGameLogic = () => {
+export const useGameLogic = () => {  
 const [arrayCards, setArrayCards] = useState([]) 
 const [openedCards, setOpenCards] = useState([]) 
 
@@ -34,9 +34,8 @@ useEffect(() => {
   setArrayCards(shuffle(paitOfArrayCards))
 }, []) 
 
-const flipCard = (index) => () => {
+const flipCard = (index) => {
   setOpenCards(opened => [...opened, index]);
-  setMoves(prevMove => prevMove + 1);
 }
 
 
@@ -49,7 +48,7 @@ useEffect(() => {
     const [firstIndex, secondIndex] = openedCards;
     const firstCard = arrayCards[firstIndex];
     const secondCard = arrayCards[secondIndex];
-
+    setMoves(prevMove => prevMove + 1);
     if (firstCard.id == secondCard.id){
       setMatched(match => [...match, firstCard.id, secondCard.id]);
       setOpenCards([]);

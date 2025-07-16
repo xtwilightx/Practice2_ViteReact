@@ -1,6 +1,4 @@
 import { GameCard } from "../UI/GameCard/GameCard";
-import { useState } from "react";
-import { initialArrayCards, Icons } from "../../constants/Cards"
 import { useGameLogic } from "../../hooks/useGameLogic";
 
 
@@ -10,8 +8,9 @@ export default function GameBoard() {
 
   return (
     <>
+    <div className="flex flex-col items-center">
       <p className='number-of-strokes'>Сделано ходов {moves}</p>
-      <div className='cards flex flex-wrap justify-center gap-4'>
+      <div className='cards grid grid-cols-4 gap-2 w-fit mx-auto'>
         {arrayCards.map((item, index) => {
 
           return (
@@ -19,6 +18,7 @@ export default function GameBoard() {
           );
         })}
       </div>
+    </div>
     </>
   )
 }

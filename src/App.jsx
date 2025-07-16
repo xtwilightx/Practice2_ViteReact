@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import GameLogic from './Components/Logic/GameBoard'
-import { GameCard } from './Components/UI/GameCard/GameCard';
-import { useGameLogic } from './hooks/useGameLogic';
+import { useState } from 'react';
+import './App.css';
+import GameBoard from './Components/Logic/GameBoard';
+import { StartGame } from './Components/UI/StartGame/StartGame';
 
 const App = () => {
+  const [gameStarted, setGameStarted] = useState(false);
 
   return (
     <div className='App'>
-
-      <GameLogic />
-
+      {!gameStarted ? (
+        <StartGame onStart={() => setGameStarted(true)} />
+      ) : (
+        <GameBoard />
+      )}
     </div>
   );
 }
 
-export default App
+export default App;
