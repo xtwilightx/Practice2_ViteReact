@@ -11,6 +11,16 @@ const [moves, setMoves] = useState(0)
 
 const paitOfArrayCards = [...initialArrayCards, ...initialArrayCards]
 
+  useEffect(() => {
+    const uniquePairsCount = initialArrayCards.length;
+    if (matched.length / 2 === uniquePairsCount) {
+      setTimeout(() => {
+        alert(`Поздравляем! Вы победили за ${moves} ходов!`);
+        window.location.reload();
+      }, 1000);
+    }
+  }, [matched]);
+
 const shuffle = (array) => {
   let currentIndex = array.length,
     temporaryValue,
